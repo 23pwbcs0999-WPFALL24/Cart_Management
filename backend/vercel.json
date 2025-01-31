@@ -8,6 +8,14 @@
     ],
     "routes": [
         {
+            "src": "/api/products/(.*)",
+            "dest": "./index.js"
+        },
+        {
+            "src": "/api/cart/(.*)",
+            "dest": "./index.js"
+        },
+        {
             "src": "/(.*)",
             "dest": "./index.js"
         }
