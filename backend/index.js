@@ -28,7 +28,20 @@ mongoose
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 
+// Add a root route handler
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Cart Management API" });
+});
+
+// Handle 404 for undefined routes
+app.use("*", (req, res) => {
+  res.status(404).json({ error: "Route not found" });
+});
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// Make sure to export the app for Vercel
+module.exports = app;
