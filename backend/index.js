@@ -23,8 +23,8 @@ mongoose
   .connect(
     "mongodb+srv://afnanmuhammad:Nanu5432@cart-management.31hmm.mongodb.net/?retryWrites=true&w=majority&appName=Cart-Management",
     {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     }
   )
   .then(() => console.log("MongoDB connected"))
