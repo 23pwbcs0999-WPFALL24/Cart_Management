@@ -35,9 +35,9 @@ router.post("/", async (req, res) => {
     );
 
     if (productIndex > -1) {
-      cart.products[productIndex].quantity += quantity; // Update quantity
+      cart.products[productIndex].quantity += quantity;
     } else {
-      cart.products.push({ productId, quantity }); // Add new product
+      cart.products.push({ productId, quantity });
     }
 
     const savedCart = await cart.save();
@@ -104,7 +104,7 @@ router.delete("/:id", async (req, res) => {
     );
 
     if (cart.products.length === 0) {
-      await Cart.findByIdAndDelete(cart._id); // Delete empty cart
+      await Cart.findByIdAndDelete(cart._id);
       return res.json({ message: "Cart emptied successfully" });
     }
 

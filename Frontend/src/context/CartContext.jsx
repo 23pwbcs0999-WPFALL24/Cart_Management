@@ -5,18 +5,18 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
-  const userId = "1"; // Replace with actual user ID
-  const baseURL = "https://cart-management.vercel.app"; // Add base URL
+  const userId = "1";
+  const baseURL = "https://cart-management.vercel.app";
 
   useEffect(() => {
     const fetchCart = async () => {
       try {
         const response = await axios.get(`${baseURL}/api/cart/${userId}`);
-        // Ensure response.data.cart is defined and has products
+
         setCartItems(response.data.cart ? response.data.cart.products : []);
       } catch (error) {
         console.error("Error fetching cart:", error);
-        setCartItems([]); // Set to empty array on error
+        setCartItems([]);
       }
     };
     fetchCart();

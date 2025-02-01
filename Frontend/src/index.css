@@ -8,7 +8,7 @@ body {
 
 /* Navbar Styles */
 nav {
-  background: #636465; /* Bootstrap primary color */
+  background: #636465; 
   color: #fff;
   padding: 15px 20px;
   display: flex;
@@ -43,7 +43,7 @@ nav a {
 }
 
 nav a:hover {
-  background: rgba(255, 255, 255, 0.2); /* Lighten on hover */
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Product List Styles */
@@ -68,7 +68,7 @@ nav a:hover {
 }
 
 .product-card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
+  transform: translateY(-5px); 
 }
 
 .product-card img {
@@ -104,15 +104,15 @@ nav a:hover {
   }
 
   .product-card {
-      width: 90%; /* Full width on smaller screens */
+      width: 90%; 
   }
 
   nav ul {
-      flex-direction: column; /* Stack links vertically on small screens */
+      flex-direction: column; 
       align-items: flex-start;
   }
 
   nav ul li {
-      margin: 5px 0; /* Space between links */
+      margin: 5px 0; 
   }
 }
