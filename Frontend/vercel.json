@@ -5,7 +5,7 @@
             "destination": "/index.html"
         }
     ],
-    "buildCommand": "cd 'Cart Manager' && npm run build",
+    "buildCommand": "cd \"Cart Manager\" && npm run build",
     "outputDirectory": "Cart Manager/dist",
-    "installCommand": "cd 'Cart Manager' && npm install"
+    "installCommand": "cd \"Cart Manager\" && npm install"
 }
