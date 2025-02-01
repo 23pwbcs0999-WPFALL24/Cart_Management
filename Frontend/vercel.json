@@ -2,10 +2,7 @@
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/index.html"
+            "destination": "/"
         }
-    ],
-    "buildCommand": "cd \"Cart Manager\" && npm run build",
-    "outputDirectory": "Cart Manager/dist",
-    "installCommand": "cd \"Cart Manager\" && npm install"
+    ]
 }
