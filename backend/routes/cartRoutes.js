@@ -94,17 +94,41 @@ router.put("/:id", async (req, res) => {
 //       .json({ message: "Error deleting from cart", error: error.message });
 //   }
 // });
+// router.delete("/:id", async (req, res) => {
+//   try {
+//     const cart = await Cart.findOne({ "products._id": req.params.id });
+//     if (!cart) return res.status(404).json({ message: "Cart item not found" });
+
+//     cart.products = cart.products.filter(
+//       (item) => item._id.toString() !== req.params.id
+//     );
+
+//     if (cart.products.length === 0) {
+//       await Cart.findByIdAndDelete(cart._id); // Delete empty cart
+//       return res.json({ message: "Cart emptied successfully" });
+//     }
+
+//     await cart.save();
+//     res.json(cart);
+//   } catch (error) {
+//     res
+//       .status(500)
+//       .json({ message: "Error deleting from cart", error: error.message });
+//   }
+// });
 router.delete("/:id", async (req, res) => {
   try {
-    const cart = await Cart.findOne({ "products._id": req.params.id });
+    let cart = await Cart.findOne({ "products._id": req.params.id });
+
     if (!cart) return res.status(404).json({ message: "Cart item not found" });
 
+    // Remove the item from the products array
     cart.products = cart.products.filter(
       (item) => item._id.toString() !== req.params.id
     );
 
     if (cart.products.length === 0) {
-      await Cart.findByIdAndDelete(cart._id); // Delete empty cart
+      await Cart.deleteOne({ _id: cart._id }); // Ensure cart is deleted properly
       return res.json({ message: "Cart emptied successfully" });
     }
 
@@ -116,4 +140,5 @@ router.delete("/:id", async (req, res) => {
       .json({ message: "Error deleting from cart", error: error.message });
   }
 });
+
 module.exports = router;
