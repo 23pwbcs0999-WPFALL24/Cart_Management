@@ -15,7 +15,8 @@ const Cart = () => {
             <h3>{item.productId.name}</h3>
             <p>Quantity: {item.quantity}</p>
             {/* <button onClick={() => removeFromCart(item._id)}>Remove</button> */}
-            <button onClick={() => removeFromCart(item.productId._id)}>
+            <button onClick={() => removeFromCart(item._id)}>Remove</button>
+
               Remove
             </button>
           </div>

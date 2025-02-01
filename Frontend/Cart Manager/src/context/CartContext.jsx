@@ -32,9 +32,18 @@ export const CartProvider = ({ children }) => {
     }
   };
 
-  const removeFromCart = async (productId) => {
+  //   const removeFromCart = async (productId) => {
+  //     try {
+  //       await axios.delete(`${baseURL}/api/cart/${productId}`);
+  //       const updatedCart = await axios.get(`${baseURL}/api/cart/${userId}`);
+  //       setCartItems(updatedCart.data.cart.products);
+  //     } catch (error) {
+  //       console.error("Error removing from cart:", error);
+  //     }
+  //   };
+  const removeFromCart = async (cartItemId) => {
     try {
-      await axios.delete(`${baseURL}/api/cart/${productId}`);
+      await axios.delete(`${baseURL}/api/cart/${cartItemId}`);
       const updatedCart = await axios.get(`${baseURL}/api/cart/${userId}`);
       setCartItems(updatedCart.data.cart.products);
     } catch (error) {
