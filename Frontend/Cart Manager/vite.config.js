@@ -10,8 +10,16 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/", // Ensure correct base path for Vercel
+  base: "./", // Changed from "/" to "./" for better path resolution
   build: {
     outDir: "dist", // Vercel serves from 'dist'
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Helps with chunking issues
+      },
+    },
+  },
+  server: {
+    historyApiFallback: true, // Handle client-side routing
   },
 });
