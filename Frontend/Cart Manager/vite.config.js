@@ -1,25 +1,19 @@
-// import { defineConfig } from 'vite'
-// import react from '@vitejs/plugin-react'
-
-// // https://vite.dev/config/
-// export default defineConfig({
-//   plugins: [react()],
-// })
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/", // Ensure correct base path for Vercel
+  base: "./", // Ensures that assets are served correctly in a relative path for deployment
   build: {
-    outDir: "dist",
+    outDir: "dist", // Vercel serves from 'dist'
     rollupOptions: {
       output: {
-        manualChunks: undefined,
+        manualChunks: undefined, // Helps with chunking issues, remove if you don't need manual chunking
       },
     },
   },
   server: {
-    historyApiFallback: true, // Ensure proper routing
+    historyApiFallback: true, // Ensures client-side routing works for SPA (important for React)
   },
 });
